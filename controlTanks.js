@@ -3,7 +3,7 @@ var turnSpeed = 0.1
 // height, width, left offset, top offset, rotation (radians)
 var redTank = new daize.sprite(30, 45, 25, 25, 0, "px");
 canv.addsprite(redTank);
-redTank.costume = "images/redtank.png";
+redTank.costume = "redtank.png";
 redTank.layer = 3;
 var redHitbox = new daize.sprite(30, 45, 25, 25, Math.PI, "px")
 canv.addsprite(redHitbox)
@@ -11,7 +11,7 @@ var redShots = []
 
 var greenTank = new daize.sprite(30, 45, 75, 25, 0, "px")
 canv.addsprite(greenTank)
-greenTank.costume = "images/greentank.png"
+greenTank.costume = "greentank.png"
 greenTank.layer = 3
 var greenHitbox = new daize.sprite(30, 45, 75, 25, Math.PI, "px")
 canv.addsprite(greenHitbox)
@@ -40,7 +40,7 @@ function setup() {
     for (var y = 0; y < 9; y++) {
       if (map[0][y].charAt(x) == "1") {
         var wall = new daize.sprite(20, 152, x * 120, y * 67, 0, "px")
-        wall.costume = "images/wall.png"
+        wall.costume = "wall.png"
         wall.layer = 3
         canv.addsprite(wall)
       }
@@ -51,20 +51,13 @@ function setup() {
     for (var y = 0; y < 9; y++) {
       if (map[1][y].charAt(x) == "1") {
         var wall = new daize.sprite(20, 130, x * 115, y * 67, Math.PI / 2, "px")
-        wall.costume = "images/wall.png"
+        wall.costume = "wall.png"
         wall.layer = 3
         canv.addsprite(wall)
         walls.push(wall)
       }
     }
   }
-  // for (var x = 0; x < 9; x++) {
-  //   // height, width, left offset, top offset, rotation (radians)
-  //   var wall = new daize.sprite(8, 59, x * 107, 60, 0, "px")
-  //   wall.costume = "images/wall.png"
-  //   wall.layer = 3
-  //   canv.addsprite(wall)
-  // }
 }
 
 function mainLoop() {
@@ -111,7 +104,7 @@ function mainLoop() {
     if (redShots.length < maxShots) {
       var tempBall = new daize.sprite(8, 8, redHitbox.x, redHitbox.y, redTank.angle, "px");
       canv.addsprite(tempBall);
-      tempBall.costume = "images/ball.png";
+      tempBall.costume = "ball.png";
       tempBall.style.filter = redTank.style.filter; tempBall.layer = 2;
       redShots.push(tempBall);
       setTimeout(() => {
@@ -130,7 +123,7 @@ function mainLoop() {
     if (greenShots.length < maxShots) {
       var tempBall = new daize.sprite(8, 8, greenHitbox.x, greenHitbox.y, greenTank.angle, "px");
       canv.addsprite(tempBall);
-      tempBall.costume = "images/ball.png";
+      tempBall.costume = "ball.png";
       tempBall.style.filter = greenTank.style.filter;
       tempBall.layer = 2;
       greenShots.push(tempBall);
